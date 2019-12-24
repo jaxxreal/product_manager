@@ -1,0 +1,13 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.header_with_button {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.product-card {
+    width: 500px;
+}

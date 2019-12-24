@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-half">
+
+  <h1 class="title header_with_button">
+    Product
+    <%= link_to 'Back', products_path, :class => 'button is-secondary' %>
+  </h1>
+
+<% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@product.errors.count, "error") %> prohibited
+        this product from being saved:
+      </h2>
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_with scope: :product, url: products_path, local: true do |form| %>
+  <div class="field">
+    <%= form.label :name, :class => 'label' %>
+    <div class="control">
+      <%= form.text_field :name, :class => 'input' %>
+    </div>
+  </div>
+ 
+  <div class="field">
+    <%= form.label :upc, :class => 'label' %>
+    <div class="control">
+      <%= form.text_field :upc, :class => 'input' %>
+    </div>
+  </div>
+ 
+  <div class="field">
+    <%= form.label :available_on, :class => 'label' %>
+    <div class="control">
+      <%= form.date_field :available_on, :class => 'input' %>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Property</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control is-expanded">
+          <%= text_field_tag("properties[][name]", "", class: 'input', placeholder: 'Name') %>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control is-expanded">
+          <%= text_field_tag("properties[][value]", "", class: 'input', placeholder: 'Value') %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <%= react_component("ProductProperty") %>
+
+  <p>
+    <%= form.submit :class => 'button is-primary' %>
+  </p>
+
+<% end %>
+</div>
+</div>
+</div>

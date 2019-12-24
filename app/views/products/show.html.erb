@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <h1 class="title header_with_button">
+        Product
+        <%= link_to 'Back', products_path, :class => 'button is-secondary' %>
+      </h1>
+
+      <div class="field">
+        <label class="label">Name:</label>
+        <div class="control">
+          <input class="input" value="<%= @product.name %>" readonly>
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">UPC:</label>
+        <div class="control">
+        <input class="input" value="<%= @product.upc %>" readonly>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Available on:</label>
+        <div class="control">
+          <input class="input" value="<%= @product.available_on %>" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

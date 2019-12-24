@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="title header_with_button">
+    Listing Products
+    <%= link_to 'New product', new_product_path, :class => 'button is-primary' %>
+  </h1>
+  
+  <%= react_component("Search", { products_properties: JSON.parse(raw(@properties.to_json)), products: JSON.parse(raw(@products.to_json)) }) %>
+</div>
+
+<script>
+console.log(<%= raw(@products.to_json) %> );
+
+console.log(<%= raw(@properties.to_json) %> );
+</script>
