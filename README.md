@@ -1,24 +1,44 @@
-# README
+# Product Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install
 
-Things you may want to cover:
+### Clone the repository
 
-* Ruby version
+```shell
+git clone git@github.com:jaxxreal/product_manager.git
+cd product_manager
+```
 
-* System dependencies
+### Check your Ruby version
 
-* Configuration
+```shell
+ruby -v
+```
 
-* Database creation
+The ouput should start with something like `ruby 2.6.3`
 
-* Database initialization
+If not, install the right ruby version using [rbenv](https://github.com/rbenv/rbenv) (it could take a while):
 
-* How to run the test suite
+```shell
+rbenv install ruby 2.6.3
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Install dependencies
 
-* Deployment instructions
+Using [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.com/yarnpkg/yarn):
 
-* ...
+```shell
+yarn
+```
+
+### Initialize the database
+
+```shell
+rails db:migrate RAILS_ENV=development
+```
+
+## Serve
+
+```shell
+rails s
+```
